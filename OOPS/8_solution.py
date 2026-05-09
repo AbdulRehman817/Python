@@ -1,6 +1,6 @@
 class Car:
 
-    def __init__(self,name,brand):
+    def __init__(self,name):
        self.__name=name   
         
     @staticmethod
@@ -16,7 +16,7 @@ class Electric_Car(Car):
         self.power=power;
     
     
-my_car=Car("Corolla","Honda")
+my_car=Car("Corolla")
 
 print(my_car.name)
 
