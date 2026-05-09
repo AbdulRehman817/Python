@@ -2,17 +2,19 @@
 
 
 class Car:
-    def __init__(self,model,name):
+    def __init__(self,name,model):
+        self.name=name;
         self.model=model
-        self.name=name
+        
     def full_name(self):
-        return f"{self.model} {self.name}"
-     
-
+        return f"{self.name} {self.model}"
+    
 class Electric_Car(Car):
-    def __init__(self,model,name,battery_size):
-        super().__init__(model,name)
-        self.battery_size=battery_size
+  def __init__(self,battery_size,brand,model):
+      super().__init__(brand,model)
+      self.battery_size=battery_size;
+      
+my_car=Electric_Car("Corolla","2019","210kwh")
 
-my_tesla=Electric_Car("Tesla","Safari","80KWH")
-print(my_tesla.full_name())
+print(my_car.battery_size)
+print(my_car.name)

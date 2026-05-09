@@ -1,13 +1,18 @@
 class Car:
-    def __init__(self,brand,model):
-        self.brand=brand
-        self.model=model
-    def full_name(self):
-        return f"{self.brand} {self.model}"
+    def __init__(self,name,brand):
+        self.name=name
+        self.__brand=brand
+    def fuel_type(self):
+        return "petrol"    
 class Electric_Car(Car):
-    def __init__(self,power,brand,model):
-        super().__init__(brand,model)
-        self.power=power
-
-my_car=Electric_Car("75kwh","Corolla","Toyota")
-print(my_car.power)
+    def __init__(self, name, brand,power):
+        super().__init__(name, brand)
+        self.power=power;
+    def fuel_type(self):
+        return "electric charge"    
+    
+my_car=Car("Corolla","Honda")
+# print(my_car.name)
+# print(my_car.brand)
+# print(my_car.full_name())
+print(my_car.fuel_type())

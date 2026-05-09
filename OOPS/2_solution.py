@@ -2,12 +2,11 @@
 
 
 class Car:
-    def __init__(self,model,name):
-        self.model=model
-        self.name=name
+    def __init__(self,brand,model):
+        self.brand=brand
+        self.model=model;
     def full_name(self):
-        return f"{self.model} {self.name}"
-     
-
-my_car=Car("Toyota","Corolla")
+        return (f" {self.brand} {self.model}")
+        
+my_car=Car("Corolla","2019")
 print(my_car.full_name())

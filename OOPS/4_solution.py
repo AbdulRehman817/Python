@@ -1,20 +1,25 @@
-#  Encapsulation
-# Problem: Modify the Car class to encapsulate the brand attribute, making it private, and provide a getter method for it.
-
 class Car:
-    def __init__(self,brand,model):
+    def __init__(self,name,brand):
+        self.name=name
         self.__brand=brand
-        self.model=model
-    def full_name(self):
-        return f'{self.brand} {self.model}'
-    
+    # def full_name(self):
+    #     return f"{self.name} {self.brand}"
     def get_brand(self):
-       return self.__brand+"!"
+        return self.__brand
+    
+    def set_brand(self,newbrand):
+        self.__brand=newbrand
     
 class Electric_Car(Car):
-    def __init__(self,size,model,brand):
-     super().__init__(model,brand)
-     self.size=size
+    def __init__(self, name, brand,power):
+        super().__init__(name, brand)
+        self.power=power;
+    
+my_car=Car("Corolla","Honda")
+# print(my_car.name)
+# print(my_car.brand)
+# print(my_car.full_name())
+print(my_car.get_brand())
 
-my_car=Electric_Car("19kwh",'Corolla',"Toyota")
+my_car.set_brand("Suzuki")
 print(my_car.get_brand())

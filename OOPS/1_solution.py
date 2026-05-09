@@ -2,10 +2,10 @@
 
 
 class Car:
-    def __init__(self,model,name):
-        self.model=model
-        self.name=name
-
-my_car=Car("Toyota","Corolla")
+    def __init__(self,model,brand):
+        self.model=model;
+        self.brand=brand;
+        
+my_car=Car('2019','Corolla')
+print(my_car.brand)
 print(my_car.model)
-print(my_car.name)
