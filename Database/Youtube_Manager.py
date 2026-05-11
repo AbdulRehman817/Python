@@ -8,7 +8,7 @@ cursor.execute('''
                 name TEXT NOT NULL,
                 time TEXT NOT NULL
             )   
-     ''');
+    ''');
 connection.commit()
 
 def list_videos():
