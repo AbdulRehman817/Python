@@ -31,6 +31,7 @@ def get_jokes():
     response=requests.get(url)
     data=response.json() 
     
+    
     if data['success'] and "data" in data:
         jokes=data['data']['data']
         return jokes
@@ -63,10 +64,10 @@ def main():
     try:
         jokes=get_jokes()
         for i in jokes:
-            print(i["content"])
-        add_jokes()
-        update_jokes(140)
-        delete_jokes(140)
+            print(i)
+        # add_jokes()
+        # update_jokes(140)
+        # delete_jokes(140)
     except Exception as e:
         print(str(e))
         
