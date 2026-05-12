@@ -1,0 +1,65 @@
+from bson.objectid import ObjectId
+import pymongo
+client=pymongo.MongoClient("mongodb+srv://abdulrehmanbey2007_db_user:abdulrehmanbey2007@cluster0.eamiwm4.mongodb.net/")
+db=client["contact_manager"]
+contact_collection=db['contacts']
+
+def list_all_the_data():
+   for contact in contact_collection.find():
+       print(f"id {contact["_id"]} name:{contact['name']} email:{contact['email']}")
+       
+
+    
+
+def add_the_data():
+    list_all_the_data()
+    name=input("Enter name ")
+    email=input("Enter email ")
+    
+    contact_collection.insert_one({"name":name,"email":email})
+    
+    
+def update_the_data():
+     list_all_the_data()
+     
+     contact_id=input("Enter the video id you have to update ")
+     new_name=input("Enter the name to update ")
+     new_email=input("Enter the email to update ")
+     contact_collection.update_one({"_id":ObjectId(contact_id)}
+                                   ,{"$set":{"name":new_name,"email":new_email}}
+                            )
+    
+     
+     
+def delete_the_data():
+     list_all_the_data()
+     id=input("Enter the video id you have to delete ")
+     contact_collection.delete_one({"_id":ObjectId(id)})
+     
+
+def main():
+    
+    while True:
+        print("\n Welcome to contact book");
+        print("1. list all the contacts ")
+        print("2. add the contact ")
+        print("3. update the contact ")
+        print("4. delete the contact ")
+        print("5. exit the app")
+        choice=input("Enter the number to perform action accordingly ")
+        match choice:
+            case "1":
+                list_all_the_data();
+            case "2":
+                 add_the_data();
+            case "3":
+                 update_the_data();
+            case "4":
+                 delete_the_data();
+            case "5":
+                 break
+            case _:
+                 print("Invalid number")
+        
+if __name__ == "__main__":
+    main()
