@@ -33,14 +33,12 @@ def update_the_data():
     new_grade=input("Enter grade ")
     student_manager_collection.update_one({"_id":ObjectId(id)},
                                           {"$set":{"name":new_name,"age":new_age,"email":new_email,"course":new_course,"grade":new_grade}}
-                                         
-                                          
-                                          )
-    
+                                          )  #TODO: if we donot add objectid then it will create new document instead of updating the existing one because mongodb will not be able to find the document with the given id and it will create new document with the given id as a field and it will not update the existing
+
     
 def delete_the_data():
     list_all_the_data()
-    id=input("Enter id to update ")
+    id=input("Enter id to delete ")
     student_manager_collection.delete_one({"_id":ObjectId(id)})
     
 
